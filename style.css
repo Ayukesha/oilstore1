@@ -824,12 +824,9 @@ a {
     padding: 2.5rem;
     max-width: 500px;
     width: 90%;
-    
-    /* [UPDATED] මොබයිල් සහ අනෙකුත් screen වල හිර නොවී scroll වෙන්න වෙනස් කරන ලදී */
     max-height: 82vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
     transform: translateY(30px) scale(0.95);
     transition: transform var(--transition-medium);
@@ -1282,13 +1279,6 @@ a {
     .reviews-section {
         padding: 3rem 1rem;
     }
-
-    .form-container {
-        /* [UPDATED] මොබයිල් screen වලට ඉඩ ඉතිරි වන ලෙස padding සහ උස සකස් කරන ලදී */
-        padding: 1.2rem 1rem;
-        width: 92%;
-        max-height: 80vh;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1341,4 +1331,24 @@ a {
 
 .theme-changing {
     animation: themeTransition 0.6s ease;
+}
+
+
+/* ===== [NEW ADDED] MOBILE FIX FOR MODAL SCROLL FREEZE & LAG ===== */
+@media (max-width: 768px) {
+    .form-modal {
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start !important; 
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        overflow-y: auto !important; 
+    }
+
+    .form-container {
+        max-height: none !important; 
+        overflow: visible !important; 
+        margin-bottom: 1.5rem;
+        padding: 1.5rem 1.2rem;
+        width: 92%;
+    }
 }
