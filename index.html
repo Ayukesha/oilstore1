@@ -202,46 +202,50 @@
         <!-- Customer Form Modal -->
         <div class="form-modal" id="form-modal">
             <div class="form-overlay" onclick="closeCustomerForm()"></div>
-            <div class="form-container">
-                <button class="form-close" onclick="closeCustomerForm()">×</button>
+            
+            <!-- [SCROLL FIX WRAPPER] මොබයිල් ස්ක්‍රෝල් එක 100% සාර්ථක කරන නව කොටස -->
+            <div class="form-scrollable-wrapper">
+                <div class="form-container">
+                    <button class="form-close" onclick="closeCustomerForm()">×</button>
 
-                <div class="form-header">
-                    <h2>Customer Details</h2>
-                    <p>Please fill in your information</p>
+                    <div class="form-header">
+                        <h2>Customer Details</h2>
+                        <p>Please fill in your information</p>
+                    </div>
+
+                    <!-- Language Switch -->
+                    <div class="lang-switch">
+                        <button class="lang-btn active" id="lang-en" onclick="switchLanguage('en')">English</button>
+                        <button class="lang-btn" id="lang-si" onclick="switchLanguage('si')">සිංහල</button>
+                    </div>
+
+                    <form id="customer-form" onsubmit="event.preventDefault(); placeOrder();">
+                        <div class="form-group">
+                            <label for="customer-name" id="label-name">Name:</label>
+                            <input type="text" id="customer-name" required oninput="validateForm()">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-address" id="label-address">Address:</label>
+                            <textarea id="customer-address" rows="3" required oninput="validateForm()"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-city" id="label-city">Nearest City:</label>
+                            <input type="text" id="customer-city" required oninput="validateForm()">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-phone" id="label-phone">Phone Number:</label>
+                            <input type="tel" id="customer-phone" required oninput="validateForm()">
+                        </div>
+
+                        <button type="submit" class="order-btn" id="order-btn" disabled>
+                            <span>Order Now</span>
+                            <span class="whatsapp-icon">📱</span>
+                        </button>
+                    </form>
                 </div>
-
-                <!-- Language Switch -->
-                <div class="lang-switch">
-                    <button class="lang-btn active" id="lang-en" onclick="switchLanguage('en')">English</button>
-                    <button class="lang-btn" id="lang-si" onclick="switchLanguage('si')">සිංහල</button>
-                </div>
-
-                <form id="customer-form" onsubmit="event.preventDefault(); placeOrder();">
-                    <div class="form-group">
-                        <label for="customer-name" id="label-name">Name:</label>
-                        <input type="text" id="customer-name" required oninput="validateForm()">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-address" id="label-address">Address:</label>
-                        <textarea id="customer-address" rows="3" required oninput="validateForm()"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-city" id="label-city">Nearest City:</label>
-                        <input type="text" id="customer-city" required oninput="validateForm()">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-phone" id="label-phone">Phone Number:</label>
-                        <input type="tel" id="customer-phone" required oninput="validateForm()">
-                    </div>
-
-                    <button type="submit" class="order-btn" id="order-btn" disabled>
-                        <span>Order Now</span>
-                        <span class="whatsapp-icon">📱</span>
-                    </button>
-                </form>
             </div>
         </div>
 
