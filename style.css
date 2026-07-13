@@ -824,8 +824,12 @@ a {
     padding: 2.5rem;
     max-width: 500px;
     width: 90%;
-    max-height: 90vh;
+    
+    /* [UPDATED] මොබයිල් සහ අනෙකුත් screen වල හිර නොවී scroll වෙන්න වෙනස් කරන ලදී */
+    max-height: 82vh;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
     transform: translateY(30px) scale(0.95);
     transition: transform var(--transition-medium);
@@ -1280,8 +1284,10 @@ a {
     }
 
     .form-container {
-        padding: 1.5rem;
-        width: 95%;
+        /* [UPDATED] මොබයිල් screen වලට ඉඩ ඉතිරි වන ලෙස padding සහ උස සකස් කරන ලදී */
+        padding: 1.2rem 1rem;
+        width: 92%;
+        max-height: 80vh;
     }
 }
 
