@@ -824,7 +824,7 @@ a {
     padding: 2.5rem;
     max-width: 500px;
     width: 90%;
-    max-height: 82vh;
+    max-height: 85vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
@@ -1279,6 +1279,28 @@ a {
     .reviews-section {
         padding: 3rem 1rem;
     }
+
+    /* 
+       ===== [CRITICAL FIX] MOBILE SCROLL FIX =====
+       මොබයිල් වලදී මුළු Modal Overlay එකම උඩ ඉඳන් පල්ලෙහාට scroll වෙන්න සකස් කරන ලදී.
+    */
+    .form-modal {
+        align-items: flex-start !important; 
+        padding: 2rem 1rem !important;
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .form-container {
+        max-height: none !important; 
+        overflow: visible !important; 
+        padding: 1.8rem 1.2rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 0 !important;
+        margin-bottom: 2rem !important;
+        transform: translateY(0) scale(1) !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1331,24 +1353,4 @@ a {
 
 .theme-changing {
     animation: themeTransition 0.6s ease;
-}
-
-
-/* ===== [NEW ADDED] MOBILE FIX FOR MODAL SCROLL FREEZE & LAG ===== */
-@media (max-width: 768px) {
-    .form-modal {
-        -webkit-overflow-scrolling: touch;
-        align-items: flex-start !important; 
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
-        overflow-y: auto !important; 
-    }
-
-    .form-container {
-        max-height: none !important; 
-        overflow: visible !important; 
-        margin-bottom: 1.5rem;
-        padding: 1.5rem 1.2rem;
-        width: 92%;
-    }
 }
