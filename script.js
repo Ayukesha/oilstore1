@@ -208,6 +208,9 @@ function applyProductTheme(productId) {
         root.style.setProperty('--primary-green-dark', '#0d1f3d');
         root.style.setProperty('--accent-green', '#60a5fa');
         root.style.setProperty('--glow-green', 'rgba(96, 165, 250, 0.3)');
+       root.style.setProperty('--white', '#EDF6FF');
+       root.style.setProperty('--off-white', '#E5F1FF');
+       root.style.setProperty('--cream', '#D8E8FF');
     } else {
         // Apply green theme (default)
         root.style.setProperty('--primary-green', '#1a5c3a');
@@ -215,6 +218,9 @@ function applyProductTheme(productId) {
         root.style.setProperty('--primary-green-dark', '#0d3d24');
         root.style.setProperty('--accent-green', '#4ade80');
         root.style.setProperty('--glow-green', 'rgba(74, 222, 128, 0.3)');
+       root.style.setProperty('--white', '#F2FAF2');
+       root.style.setProperty('--off-white', '#E8F5E9');
+       root.style.setProperty('--cream', '#D9EDD9');
     }
 
     // Add theme transition animation
