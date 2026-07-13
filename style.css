@@ -691,11 +691,10 @@ a {
     font-size: 1.2rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color var(--transition-slow), color var(--transition-slow);
+    transition: border-color var(--transition-slow), color var(--transition-slow), background var(--transition-fast), transform var(--transition-fast);
 }
 
 .qty-btn:hover {
@@ -770,7 +769,6 @@ a {
     transition: all var(--transition-medium);
     box-shadow: 0 8px 30px rgba(26, 92, 58, 0.3);
     margin: 0 auto;
-    display: block;
 }
 
 .fill-details-btn:hover {
@@ -815,6 +813,16 @@ a {
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
+}
+
+/* ඩෙස්ක්ටොප් සඳහා Wrapper Default සෙටින්ග්ස් */
+.form-scrollable-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-container {
@@ -1281,19 +1289,21 @@ a {
     }
 
     /* 
-       ===== [CRITICAL FIX] MOBILE MODAL POSITIONING & SCROLL =====
-       මොබයිල් වලදී මැද හිරවීම සම්පූර්ණයෙන්ම ඉවත් කර උඩ ඉඳන් පහලට scroll වීමට සකසා ඇත.
+        ===== [CRITICAL FIX] MOBILE MODAL POSITIONING & SCROLL =====
+        මොබයිල් වලදී Form Modal එක පතුලටම බාධාවකින් තොරව scroll කරගැනීම සඳහා සකසා ඇති නවතම කේත කොටස.
     */
     .form-modal {
-        display: block !important; 
+        display: none;
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
         height: 100% !important;
-        overflow-y: scroll !important; 
-        -webkit-overflow-scrolling: touch !important;
-        padding: 10px !important;
+        z-index: 99999 !important;
+    }
+    
+    .form-modal.active {
+        display: block !important;
     }
 
     .form-overlay {
@@ -1302,19 +1312,37 @@ a {
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        background: rgba(0, 0, 0, 0.7) !important;
+        z-index: 1 !important;
+    }
+
+    /* නව ස්ක්‍රෝල් සෙටින්ග්ස් - මුළු Wrapper එකම Scrollable කරයි */
+    .form-scrollable-wrapper {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important;
+        z-index: 2 !important;
+        padding: 20px 10px 80px 10px !important;
+        box-sizing: border-box !important;
+        display: block !important;
     }
 
     .form-container {
         position: relative !important;
-        top: 20px !important; 
-        margin: 0 auto 40px auto !important; 
+        top: 0 !important;
+        left: 0 !important;
+        margin: 0 auto !important; 
         max-height: none !important; 
         overflow: visible !important; 
         width: 100% !important;
-        max-width: 450px !important;
+        max-width: 420px !important;
         padding: 25px 15px !important;
         transform: none !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
     }
     
     .form-group input,
