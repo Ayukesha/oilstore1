@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayukesha Ceylon Herbal Oil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ============================================
+         PRODUCT SELECTION SCREEN
+    ============================================ -->
+    <section id="product-selection" class="product-selection active">
+        <div class="selection-overlay"></div>
+        <div class="selection-content">
+            <h1 class="brand-title">AYUKESHA CEYLON</h1>
+            <p class="brand-subtitle">Premium Herbal Oils from Sri Lanka</p>
+            <p class="selection-prompt">Choose Your Product</p>
+
+            <div class="product-cards">
+                <!-- Product 1 Card -->
+                <div class="product-card" id="card-product-1" onclick="selectProduct(1)">
+                    <div class="card-glow green-glow"></div>
+                    <div class="card-inner">
+                        <div class="card-icon">
+                            <img src="images/logo-green.png" alt="Ayukesha Logo" id="selection-logo-1">
+                        </div>
+                        <h2 class="card-title" id="selection-name-1">AYUKESHA CEYLON HERBAL OIL</h2>
+                        <p class="card-desc">Traditional Ayurvedic Herbal Oil</p>
+                        <div class="card-theme-badge green-badge">Green Theme</div>
+                        <button class="select-btn">Select Product</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 Card -->
+                <div class="product-card" id="card-product-2" onclick="selectProduct(2)">
+                    <div class="card-glow blue-glow"></div>
+                    <div class="card-inner">
+                        <div class="card-icon">
+                            <img src="images/logo-blue.png" alt="Wishwa Shakthi Logo" id="selection-logo-2">
+                        </div>
+                        <h2 class="card-title" id="selection-name-2">Wishwa Shakthi Sandhi Oil</h2>
+                        <p class="card-desc">Joint & Muscle Relief Oil</p>
+                        <div class="card-theme-badge blue-badge">Blue Theme</div>
+                        <button class="select-btn">Select Product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MAIN WEBSITE (Hidden until product selected)
+    ============================================ -->
+    <div id="main-website" class="main-website">
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo-green.png" alt="Logo" id="nav-logo-img">
+                </div>
+                <button class="product-switch-btn" onclick="showProductSelection()">
+                    <span class="switch-icon">↻</span>
+                    <span>Switch Product</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero / Product Info Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <!-- Product Logo (Top Center) -->
+                <div class="hero-logo">
+                    <img src="images/logo-green.png" alt="Product Logo" id="hero-logo-img">
+                </div>
+
+                <div class="hero-grid">
+                    <!-- Product Image -->
+                    <div class="hero-image">
+                        <div class="image-frame">
+                            <img src="images/bottle-sample.png" alt="Product Bottle" id="hero-bottle-img">
+                            <div class="image-glow" id="hero-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="hero-details">
+                        <h1 class="product-name" id="product-name">AYUKESHA CEYLON HERBAL OIL</h1>
+                        <p class="product-tagline" id="product-tagline">100% Natural • Ayurvedic Formula • Made in Sri Lanka</p>
+
+                        <div class="detail-box">
+                            <h3>Description</h3>
+                            <p id="product-description">A premium herbal oil crafted using ancient Ayurvedic recipes from Sri Lanka. Made with carefully selected natural herbs and cold-pressed oils to deliver maximum therapeutic benefits.</p>
+                        </div>
+
+                        <div class="detail-box">
+                            <h3>Benefits</h3>
+                            <ul id="product-benefits">
+                                <li>Relieves muscle and joint pain naturally</li>
+                                <li>Improves blood circulation</li>
+                                <li>Reduces inflammation and swelling</li>
+                                <li>Promotes relaxation and stress relief</li>
+                                <li>100% natural with no harmful chemicals</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-box">
+                            <h3>Usage</h3>
+                            <p id="product-usage">Apply a small amount to the affected area and massage gently in circular motions. Use 2-3 times daily for best results. For external use only.</p>
+                        </div>
+
+                        <button class="next-btn" onclick="scrollToSizes()">
+                            <span>Choose Your Size</span>
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottle Size & Price Section -->
+        <section class="sizes-section" id="sizes-section">
+            <div class="section-header">
+                <h2>Select Your Bottle Size</h2>
+                <p>Choose the perfect size for your needs</p>
+            </div>
+
+            <div class="sizes-container">
+                <!-- 50ML Card -->
+                <div class="size-card">
+                    <div class="size-badge">50ML</div>
+                    <div class="size-image">
+                        <img src="images/bottle-50ml.png" alt="50ML Bottle">
+                    </div>
+                    <div class="size-price">Rs. <span id="price-50">990</span>/=</div>
+                    <div class="quantity-control">
+                        <button class="qty-btn minus" onclick="updateQuantity(50, -1)">−</button>
+                        <span class="qty-display" id="qty-50">0</span>
+                        <button class="qty-btn plus" onclick="updateQuantity(50, 1)">+</button>
+                    </div>
+                    <div class="size-subtotal">Subtotal: Rs. <span id="sub-50">0</span>/=</div>
+                </div>
+
+                <!-- 100ML Card -->
+                <div class="size-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="size-badge">100ML</div>
+                    <div class="size-image">
+                        <img src="images/bottle-100ml.png" alt="100ML Bottle">
+                    </div>
+                    <div class="size-price">Rs. <span id="price-100">1990</span>/=</div>
+                    <div class="quantity-control">
+                        <button class="qty-btn minus" onclick="updateQuantity(100, -1)">−</button>
+                        <span class="qty-display" id="qty-100">0</span>
+                        <button class="qty-btn plus" onclick="updateQuantity(100, 1)">+</button>
+                    </div>
+                    <div class="size-subtotal">Subtotal: Rs. <span id="sub-100">0</span>/=</div>
+                </div>
+
+                <!-- 200ML Card -->
+                <div class="size-card">
+                    <div class="size-badge">200ML</div>
+                    <div class="size-image">
+                        <img src="images/bottle-200ml.png" alt="200ML Bottle">
+                    </div>
+                    <div class="size-price">Rs. <span id="price-200">2990</span>/=</div>
+                    <div class="quantity-control">
+                        <button class="qty-btn minus" onclick="updateQuantity(200, -1)">−</button>
+                        <span class="qty-display" id="qty-200">0</span>
+                        <button class="qty-btn plus" onclick="updateQuantity(200, 1)">+</button>
+                    </div>
+                    <div class="size-subtotal">Subtotal: Rs. <span id="sub-200">0</span>/=</div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>Rs. <span id="summary-subtotal">0</span>/=</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Charge:</span>
+                    <span>Rs. 500/=</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Grand Total:</span>
+                    <span>Rs. <span id="summary-total">500</span>/=</span>
+                </div>
+            </div>
+
+            <button class="fill-details-btn" onclick="openCustomerForm()">
+                <span>Fill Your Details</span>
+                <span class="arrow">→</span>
+            </button>
+        </section>
+
+        <!-- Customer Form Modal -->
+        <div class="form-modal" id="form-modal">
+            <div class="form-overlay" onclick="closeCustomerForm()"></div>
+            <div class="form-container">
+                <button class="form-close" onclick="closeCustomerForm()">×</button>
+
+                <div class="form-header">
+                    <h2>Customer Details</h2>
+                    <p>Please fill in your information</p>
+                </div>
+
+                <!-- Language Switch -->
+                <div class="lang-switch">
+                    <button class="lang-btn active" id="lang-en" onclick="switchLanguage('en')">English</button>
+                    <button class="lang-btn" id="lang-si" onclick="switchLanguage('si')">සිංහල</button>
+                </div>
+
+                <form id="customer-form" onsubmit="event.preventDefault(); placeOrder();">
+                    <div class="form-group">
+                        <label for="customer-name" id="label-name">Name:</label>
+                        <input type="text" id="customer-name" required oninput="validateForm()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-address" id="label-address">Address:</label>
+                        <textarea id="customer-address" rows="3" required oninput="validateForm()"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-city" id="label-city">Nearest City:</label>
+                        <input type="text" id="customer-city" required oninput="validateForm()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-phone" id="label-phone">Phone Number:</label>
+                        <input type="tel" id="customer-phone" required oninput="validateForm()">
+                    </div>
+
+                    <button type="submit" class="order-btn" id="order-btn" disabled>
+                        <span>Order Now</span>
+                        <span class="whatsapp-icon">📱</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Product Gallery Section -->
+        <section class="gallery-section">
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <p>Discover our range of premium herbal oils</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery-1.png" alt="Product Gallery 1">
+                    <div class="gallery-overlay">
+                        <span>Premium Quality</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-2.png" alt="Product Gallery 2">
+                    <div class="gallery-overlay">
+                        <span>Natural Ingredients</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-3.png" alt="Product Gallery 3">
+                    <div class="gallery-overlay">
+                        <span>Ayurvedic Formula</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-4.png" alt="Product Gallery 4">
+                    <div class="gallery-overlay">
+                        <span>Made in Sri Lanka</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-5.png" alt="Product Gallery 5">
+                    <div class="gallery-overlay">
+                        <span>Handcrafted</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-6.png" alt="Product Gallery 6">
+                    <div class="gallery-overlay">
+                        <span>Trusted Brand</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews Section -->
+        <section class="reviews-section">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <p>What our customers say about us</p>
+            </div>
+
+            <div class="reviews-container" id="reviews-container">
+                <!-- Reviews will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo-green.png" alt="Logo" id="footer-logo">
+                    <h3>Ayukesha Ceylon</h3>
+                    <p>Premium Herbal Oils from Sri Lanka</p>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>📧 <a href="mailto:www.aykeshaceylon.pvtltd@gmail.com">www.aykeshaceylon.pvtltd@gmail.com</a></p>
+                    <p>📱 <a href="https://wa.me/94769884646">+94 76 988 4646</a></p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#sizes-section">Order Now</a>
+                    <a href="#" onclick="showProductSelection(); return false;">Switch Product</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Ayukesha Ceylon (Pvt) Ltd. All Rights Reserved.</p>
+                <p class="made-in">🇱🇰 Made in Sri Lanka</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
